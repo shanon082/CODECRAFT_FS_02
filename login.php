@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +15,18 @@
     <div class="wrapper">
         <form action="login_processing.php" method="post">
             <h1>Login As Admin</h1>
-            <label for="username">Enter your User name</label>
-            <input type="text" placeholder="username" required>
+            <label for="email">Enter your Email</label>
+            <input type="email" placeholder="email" name="email" required>
 
             <label for="password">Enter your Password</label>
-            <input type="password" placeholder="password" required>
+            <input type="password" placeholder="password" name="password" required>
+
+            <?php
+                if(isset($_SESSION["error"])){
+                    echo $_SESSION["error"];
+                    unset($_SESSION["error"]);
+                }
+            ?>
             
             <div class="links">
                 <a href="forgotpassword.html">forgot password</a>
