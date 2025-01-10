@@ -1,8 +1,8 @@
 <?php
-require("db.php");
+include("db.php");
 session_start();
 
-if (isset($_POST["submit"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $email = $_POST["email"];
@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
             // exit;
         }
         else{
-            $stmt= $conn->prepare("SELECT * FROM user_details WHERE username =?");
+            $stmt= $myconn->prepare("SELECT * FROM user_details WHERE username =?");
             $stmt->bind_param("s", $username);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -31,11 +31,10 @@ if (isset($_POST["submit"])) {
             }else{
                 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-                $stmt = $conn->prepare("INSERT INTO user_details(username,email,password) VALUE (?,?,?)");
+                $stmt = $myconn->prepare("INSERT INTO user_details(username,email,password) VALUE (?,?,?)");
                 $stmt->bind_param("sss", $username, $email, $password_hash);
     
                 if ($stmt->execute() === TRUE) {
-                    $_SESSION["success"] = "Account created, login to continue";
                     header("Location: login.php");
                 }else{
                     echo"error: ".$stmt->error;
@@ -44,4 +43,7 @@ if (isset($_POST["submit"])) {
 
         }
     }
+}
+else{
+    echo"error";
 }

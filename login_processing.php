@@ -4,7 +4,7 @@ session_start();
 
 
 unset($_SESSION["error"]);
-if (isset($_POST["submit"])) {
+if ($_SERVER["REQUEST_METHOD"]== "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
             header("Location: login.php");
             exit();
         } else {
-            $stmt = $conn->prepare("SELECT * FROM user_details WHERE email = ?");
+            $stmt = $myconn->prepare("SELECT * FROM user_details WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
             $result = $stmt->get_result();
