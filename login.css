@@ -30,6 +30,7 @@ input{
     height: 30px;
     border-radius: 5px;
     margin-bottom: 10px;
+    padding: 0 5px;
 }
 
 .links{
@@ -42,5 +43,11 @@ input{
     text-decoration: none;
     color: blue;
     cursor: pointer;
-    margin: 10px 0;
+    margin: 5px 0;
+}
+
+button{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
 }
