@@ -8,7 +8,7 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    if (!empty($email) && !empty($password)) {
+    if (empty($email) && empty($password)) {
         $_SESSION['error'] = "Empty fields";
         header("Location: login.php");
         exit();

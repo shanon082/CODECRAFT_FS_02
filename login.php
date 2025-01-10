@@ -30,7 +30,7 @@ session_start();
             
             <div class="links">
                 <a href="forgotpassword.html">forgot password</a>
-                <a href="signup.html">New user</a>
+                <a href="signup.php">New user</a>
             </div>
             <button type="submit">Login</button>
         </form>
