@@ -11,20 +11,20 @@ if ($_SERVER["REQUEST_METHOD"]== "POST") {
     if (empty($email) && empty($password)) {
         $_SESSION['error'] = "Empty fields";
         header("Location: login.php");
-        exit();
+        // exit();
     } else {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['error'] = "wrong email format enter the correct format";
             header("Location: login.php");
-            exit();
+            // exit();
         } else {
-            $stmt = $myconn->prepare("SELECT * FROM user_details WHERE email = ?");
-            $stmt->bind_param("s", $email);
+            $stmt = $myconn->prepare("SELECT * FROM user_details WHERE email = ?AND password = ?");
+            $stmt->bind_param("ss", $email, $password);
             $stmt->execute();
             $result = $stmt->get_result();
             $user = $result->fetch_assoc();
 
-            if ($user && password_verify($password, $user["password_hash"])) {
+            if ($result->num_rows > 0) {
                 $_SESSION["username"] = $user["username"];
                 header("Location: index.php");
             } else {

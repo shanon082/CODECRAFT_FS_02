@@ -10,9 +10,12 @@
     justify-content: center;
     min-height: 100vh;
     flex-direction: column;
+    background:linear-gradient(45deg, purple,pink);
 }
 form{
     width: 30vw;
+    border: 2px solid white;
+    padding: 10px;
 }
 h1{
     font-size: 1.5em;
