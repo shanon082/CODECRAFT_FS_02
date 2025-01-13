@@ -13,7 +13,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 70px;
+    height: 9vh;
     width: 100vw;
     padding: 0 3rem;
     z-index: 999;
@@ -22,12 +22,15 @@
 .side-bar{
     background-color: purple;
     color: white;
-    height: 100vh;
+    height: calc(100vh - 5vh);
     width: 300px;
-    padding-top: 60px;
+    padding-top: 30px;
     padding-left: 3rem;
+    z-index: 40;
     padding-right: 1.2rem;
-    position: relative;
+    position: fixed;
+    left: 0;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

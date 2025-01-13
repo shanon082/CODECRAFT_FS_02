@@ -18,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"]== "POST") {
             header("Location: login.php");
             // exit();
         } else {
-            $stmt = $myconn->prepare("SELECT * FROM user_details WHERE email = ?AND password = ?");
-            $stmt->bind_param("ss", $email, $password);
+            $stmt = $myconn->prepare("SELECT * FROM user_details WHERE email = ?");
+            $stmt->bind_param("s", $email);
             $stmt->execute();
             $result = $stmt->get_result();
             $user = $result->fetch_assoc();
