@@ -25,7 +25,6 @@
     background-color: purple;
     color: white;
     font-size: 18px;
-    margin-left: 15px;
 }
 
 .container .buttons button:hover{
@@ -35,7 +34,6 @@
     background-color: rgb(158, 43, 158);
     color: white;
     font-size: 18px;
-    margin-left: 15px;
 }
 
 .container .other-btns input, .container .other-btns select{
@@ -43,7 +41,14 @@
     border: 2px solid purple;
     border-radius: 5px;
     padding: 0 5px;
+    margin-left: 15px;
     height: 30px;
+    font-size: 15px;
+}
+
+.container .other-btns label{
+    font-size: 18px;
+    color: purple;
 }
 
 .container table{
