@@ -21,7 +21,7 @@ session_start();
         <nav>
             <ul>
                 <li><a href="">Dashboard</a></li>
-                <li><a href="">Employees</a></li>
+                <li><a href="Employee.php">Employees</a></li>
                 <li><a href="">Department</a></li>
                 <li><a href="">About</a></li>
             </ul>

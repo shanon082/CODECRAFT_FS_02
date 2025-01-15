@@ -17,7 +17,7 @@ include("header.php");
         <h1>Employees</h1>
         <div class="buttons">
             <div class="create-btn">
-                <button type="submit">Add Employee</button>
+                <button type="submit">Add Employees</button>
             </div>
             <div class="other-btns">
                 <button>filter</button>
