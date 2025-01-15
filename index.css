@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.container{
+    margin-left: 310px;
+    margin-top: 40px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.container .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.container .buttons button{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+    font-size: 18px;
+}
+
+.container .other-btns input{
+    outline: none;
+    border: 2px solid purple;
+    border-radius: 5px;
+    padding: 0 5px;
+    height: 30px;
+}
+
+.container table{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.container table, th, td{
+    border: 2px solid gray;
+    padding: 4px;
+    border-collapse: collapse;
+}
