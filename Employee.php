@@ -20,8 +20,13 @@ include("header.php");
                 <button type="submit">Add Employees</button>
             </div>
             <div class="other-btns">
-                <button>filter</button>
-                <button>sort</button>
+                <label for="select">filter by:</label>
+                <select name="filter" id="filter" placeholder="filter">
+                    <option value="" selected>Age</option>
+                    <option value="">Gender</option>
+                    <option value="">Depatment</option>
+                    <option value="">First name</option>
+                </select>
                 <input type="text" placeholder="search employee">
             </div>
         </div>

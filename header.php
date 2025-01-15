@@ -22,7 +22,7 @@ session_start();
             <ul>
                 <li><a href="">Dashboard</a></li>
                 <li><a href="Employee.php">Employees</a></li>
-                <li><a href="">Department</a></li>
+                <li><a href="Department.php">Department</a></li>
                 <li><a href="">About</a></li>
             </ul>
         </nav>
