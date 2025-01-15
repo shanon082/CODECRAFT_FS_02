@@ -25,9 +25,20 @@
     background-color: purple;
     color: white;
     font-size: 18px;
+    margin-left: 15px;
 }
 
-.container .other-btns input{
+.container .buttons button:hover{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(158, 43, 158);
+    color: white;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.container .other-btns input, .container .other-btns select{
     outline: none;
     border: 2px solid purple;
     border-radius: 5px;

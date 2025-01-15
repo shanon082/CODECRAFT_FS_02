@@ -18,8 +18,11 @@ include("header.php");
                 <button type="submit">Add Department</button>
             </div>
             <div class="other-btns">
-                <button>filter</button>
-                <button>sort</button>
+                <label for="select">filter by:</label>
+                <select name="filter" id="filter" placeholder="filter">
+                    <option value="" selected>name</option>
+                    <option value="">salary</option>
+                </select>
                 <input type="text" placeholder="search department">
             </div>
         </div>
