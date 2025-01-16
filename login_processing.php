@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"]== "POST") {
 
             if ($result->num_rows > 0) {
                 $_SESSION["username"] = $user["username"];
-                header("Location: index.php");
+                header("Location: Employee.php");
             } else {
                 $_SESSION['error'] = "wrong email or password";
                 header("Location: login.php");

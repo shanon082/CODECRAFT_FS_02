@@ -20,12 +20,14 @@ include("header.php");
                 <button type="submit">Add Employees</button>
             </div>
             <div class="other-btns">
-                <label for="select">filter by:</label>
-                <select name="filter" id="filter" placeholder="filter">
-                    <option value="" selected>Age</option>
-                    <option value="">Gender</option>
-                    <option value="">Depatment</option>
-                    <option value="">First name</option>
+                <label for="select">Sort By:</label>
+                <select name="sortBy" id="sortBy" placeholder="sortBy">
+                    <option value="" selected>ID (smallest to larger)</option>
+                    <option value="" selected>ID (larger to smallest)</option>
+                    <option value="">Oldest first</option>
+                    <option value="">youngest first</option>
+                    <option value="">Firstname A-Z</option>
+                    <option value="">First name Z-A</option>
                 </select>
                 <input type="text" placeholder="search employee">
             </div>
