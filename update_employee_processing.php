@@ -2,21 +2,28 @@
 session_start();
 include("db.php");
 
-
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+// Ensure 'id' is set and valid
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $id = (int)$_GET['id'];
     $sql = "SELECT * FROM employees WHERE id = ?";
     $stmt = $myconn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
-    $employee = $result->fetch_assoc();
+    
+    if ($result->num_rows > 0) {
+        $employee = $result->fetch_assoc();
+    } else {
+        echo "No employee found with ID: " . htmlspecialchars($id);
+        exit;
+    }
     $stmt->close();
 } else {
-    die("No employee ID provided.");
+    echo "Invalid or missing employee ID.";
+    exit;
 }
 
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -27,10 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "UPDATE employees SET first_name = ?, last_name = ?, other_names = ?, gender = ?, age = ? WHERE id = ?";
     $stmt = $myconn->prepare($sql);
     $stmt->bind_param("ssssii", $firstName, $lastName, $otherNames, $gender, $age, $id);
-    
+
     if ($stmt->execute()) {
-        echo "Employee updated successfully.";
-        header("Location: employee.php");
+        header("Location: employee.php"); 
+        exit;
     } else {
         echo "Error updating employee: " . $myconn->error;
     }
