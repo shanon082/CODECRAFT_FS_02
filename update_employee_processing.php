@@ -2,9 +2,7 @@
 session_start();
 include("db.php");
 
-if ($myconn->connect_error) {
-    die("Connection failed: " . $myconn->connect_error);
-}
+
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

@@ -61,7 +61,7 @@ include("db.php");
                         echo "<td>" . $row['age'] . "</td>";
                         // echo "<td><a href='" . htmlspecialchars($row['picture_path']) . "' target='_blank'>View Picture</a></td>";
                         echo "<td><a href='about_employee.php?id=" . $row['id'] . "'>More details</a></td>";
-                        echo "<td><a href='update_employee.php?id=" . $row['id'] . "'>Update</a></td>";
+                        echo "<td><a href='update_employee.php?id=" . urlencode($row['id']) . "'>Update</a></td>";
                         echo "<td><a href='delete_employee.php?id=" . $row['id'] . "'>Delete</a></td>";
                         echo "</tr>";
                     }
