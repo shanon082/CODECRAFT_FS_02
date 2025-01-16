@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == 'POST'){
             $mail->Body = "your OTP is: <strong>$otp</strong> ignore if not requested";
 
             $mail->send();
-            echo"OTP sent to your email. <a href='verifyOtp.html'>Verify OTP</a>";
+            echo"OTP sent to your email. <a href='verifyOtppage.php'>Verify OTP</a>";
         }
         catch(Exception $e){
             echo'Error sending the OTP: '. $e->getMessage();
