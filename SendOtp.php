@@ -27,11 +27,11 @@ if($_SERVER["REQUEST_METHOD"] == 'POST'){
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'shanonsimon082@gmail.com';
-            $mail->Password = '';
+            $mail->Password = 'yvlq jybd bwyw eblc';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 500;
 
-            $mail->setFrom('shanonsimon082@gmail.com','CODECRAFT_FS_02: EMPLOYEE MANAGEMENT SYSTEM');
+            $mail->setFrom('shanonsimon082@gmail.com','CODECRAFT_FS_02:: EMPLOYEE MANAGEMENT SYSTEM');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
