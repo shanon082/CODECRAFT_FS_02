@@ -3,21 +3,19 @@ session_start();
 include("db.php");
 
 
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = (int)$_GET['id'];
-    $sql = "SELECT * FROM employees WHERE id = ?";
-    $stmt = $myconn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+if (isset($_GET['id'])) {
+    $id = $myconn->real_escape_string($_GET['id']);
+    $sql = "SELECT * FROM employees WHERE id = '$id'";
+    $result = $myconn->query($sql);
+
     
     if ($result->num_rows > 0) {
-        $employee = $result->fetch_assoc();
+        $row = $result->fetch_assoc();
     } else {
-        echo "No employee found with ID: " . htmlspecialchars($id);
+        echo "No employee found with ID: " ;
         exit;
     }
-    $stmt->close();
+
 } else {
     echo "Invalid or missing employee ID.";
     exit;
@@ -25,23 +23,22 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $otherNames = $_POST['otherNames'];
-    $gender = $_POST['gender'];
-    $age = $_POST['age'];
+    $id = $myconn->real_escape_string($_POST['id']);
+    $firstName = $myconn->real_escape_string($_POST['firstName']);
+    $lastName = $myconn->real_escape_string($_POST['lastName']);
+    $otherNames = $myconn->real_escape_string($_POST['otherNames']);
+    $gender = $myconn->real_escape_string($_POST['gender']);
+    $age = $myconn->real_escape_string($_POST['age']);
 
-    $sql = "UPDATE employees SET first_name = ?, last_name = ?, other_names = ?, gender = ?, age = ? WHERE id = ?";
-    $stmt = $myconn->prepare($sql);
-    $stmt->bind_param("ssssii", $firstName, $lastName, $otherNames, $gender, $age, $id);
+    $sql = "UPDATE employees SET first_name = '$firstName', last_name = '$lastName', other_names = '$otherNames', gender = '$gender', age = '$age' WHERE id = '$id'";
 
-    if ($stmt->execute()) {
-        header("Location: employee.php"); 
-        exit;
-    } else {
-        echo "Error updating employee: " . $myconn->error;
+    $result = $myconn->query($sql);
+    if($result === true){
+        echo'successfull';
+    }else{
+        echo 'error'. $myconn->error;
     }
-    $stmt->close();
+
 }
 $myconn->close();
 ?>
