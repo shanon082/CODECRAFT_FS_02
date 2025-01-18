@@ -2,7 +2,7 @@
 session_start();
 include("db.php");
 
-
+unset($_SESSION["status"]);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("ssssis", $firstName, $lastName, $otherNames, $gender, $age, $filePath);
         
         if ($stmt->execute()) {
-            echo "Employee added successfully.";
+            $_SESSION['status'] = "Employee added successfully.";
+            header("Location: Employee.php");
         } else {
             echo "Error: " . $myconn->error;
         }
