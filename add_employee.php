@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         $stmt->close();
     } else {
-        echo "Failed to upload picture.";
+        $_SESSION['status'] = "failed to add employee.";
+        header("Location: Employee.php");
     }
 }
 
