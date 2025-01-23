@@ -11,12 +11,13 @@ include("update_employee_processing.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Employee</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <h2>Update Employee</h2>
         <form action="update_employee_processing.php" method="POST">
+        <h2>Update Employee</h2>
             <label for="id">id:</label>
             <input type="text" id="id" name="id" value="<?php echo htmlspecialchars($row['id']); ?>" readonly>
 
@@ -29,11 +30,11 @@ include("update_employee_processing.php");
             <label for="otherNames">Other Names:</label>
             <input type="text" id="otherNames" name="otherNames" value="<?php echo htmlspecialchars($row['other_names']); ?>">
 
-            <label for="gender">Gender:</label>
+            <label for="gender">Gender:</label><br>
             <select id="gender" name="gender" required>
                 <option value="Male" <?php echo $row['gender'] == 'Male' ? 'selected' : ''; ?>>Male</option>
                 <option value="Female" <?php echo $row['gender'] == 'Female' ? 'selected' : ''; ?>>Female</option>
-            </select>
+            </select><br>
 
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($row['age']); ?>" required>
