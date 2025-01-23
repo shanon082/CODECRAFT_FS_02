@@ -13,12 +13,7 @@ if (isset($_GET['id'])) {
         $row = $result->fetch_assoc();
     } else {
         echo "No employee found with ID: " ;
-        exit;
     }
-
-} else {
-    echo "Invalid or missing employee ID.";
-    exit;
 }
 
 
@@ -34,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $result = $myconn->query($sql);
     if($result === true){
-        echo'successfull';
+        echo '<script> window.alert( "successfully"); </script>';
+        header('Location: Employee.php');
     }else{
         echo 'error'. $myconn->error;
     }

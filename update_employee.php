@@ -38,7 +38,7 @@ include("update_employee_processing.php");
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($row['age']); ?>" required>
 
-            <button type="submit" name="update">Update Employee</button>
+            <button type="submit" >Update Employee</button>
         </form>
     </div>
 </body>
