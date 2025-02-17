@@ -11,6 +11,7 @@ include("db.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employees</title>
     <link rel="stylesheet" href="employee.css">
+    <link rel="shortcut icon" href="./uploads/WIN_20241112_10_43_51_Pro.jpg" type="image/x-icon">
 </head>
 
 <body>
